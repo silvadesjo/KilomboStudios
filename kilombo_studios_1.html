@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kilombo Studios — 1282 Dundas St. W, Toronto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #264232;
+      --green-deep:  #1e3428;
+      --green-pale:  #e8f0eb;
+      --green-mid:   #3d6652;
+      --mustard:     #c88715;
+      --mustard-pale:#fdf3d8;
+      --terra:       #b2572b;
+      --terra-pale:  #faeee6;
+      --charcoal:    #2a2018;
+      --cream:       #fdf6ec;
+      --cream-warm:  #f5ede0;
+      --cream-dim:   #e0cfb5;
+      --off-white:   #ffffff;
+      --text-dark:   #2a2018;
+      --text-mid:    #5a4d40;
+      --text-light:  #8a7a68;
+      --muted-dark:  rgba(42,32,24,0.6);
+      --muted:       rgba(252,236,205,0.6);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Typography ─────────────────────────────────────────────────── */
+    .display { font-family: 'Playfair Display', serif; }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.15; }
+
+    p { max-width: 62ch; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(253,246,236,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(42,32,24,0.1);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--green);
+    }
+
+    .nav-logo span { color: var(--terra); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2.4rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terra); }
+
+    .nav-cta {
+      background: var(--terra);
+      color: var(--cream) !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 2px;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.08em;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover { background: #9a4820 !important; transform: translateY(-1px); }
+
+    /* ── Hero ───────────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: var(--cream-warm);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 2.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-texture {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 75% 20%, rgba(200,135,21,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 70% at 10% 90%, rgba(178,87,43,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mustard);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.04;
+      color: var(--green);
+      max-width: 14ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--mustard);
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 46ch;
+      margin-bottom: 2.8rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+
+    .btn-primary {
+      background: var(--terra);
+      color: var(--cream);
+      padding: 0.85rem 2.2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border: none; cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: #9a4820; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      padding: 0.85rem 2.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border: 1px solid rgba(42,32,24,0.3);
+      cursor: pointer;
+      border-radius: 2px;
+      color: var(--text-dark);
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: var(--terra); color: var(--terra); }
+
+    .hero-address {
+      position: absolute; bottom: 2.2rem; right: 2.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(42,32,24,0.35);
+    }
+
+    /* ── Section Wrapper ────────────────────────────────────────────── */
+    section { padding: 6rem 2.5rem; }
+
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mustard);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    /* ── About ──────────────────────────────────────────────────────── */
+    #about {
+      background: var(--cream);
+      color: var(--charcoal);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    #about .section-tag { color: var(--terra); }
+
+    #about h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--green);
+      margin-bottom: 1.8rem;
+      line-height: 1.12;
+    }
+
+    #about h2 em { font-style: italic; color: var(--terra); }
+
+    #about p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #3a3228;
+      margin-bottom: 1.3rem;
+    }
+
+    .about-values {
+      margin-top: 2.5rem;
+      display: flex; flex-direction: column; gap: 1.6rem;
+    }
+
+    .value-item { border-left: 2px solid var(--mustard); padding-left: 1.2rem; }
+
+    .value-item strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--green);
+      margin-bottom: 0.25rem;
+    }
+
+    .value-item p {
+      font-size: 0.9rem;
+      color: #5a4e42;
+      margin: 0;
+    }
+
+    .about-quote {
+      background: var(--green-mid);
+      color: var(--cream);
+      padding: 3rem;
+      border-radius: 2px;
+      position: sticky;
+      top: 6rem;
+    }
+
+    .about-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+      color: var(--cream);
+    }
+
+    .about-quote cite {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mustard);
+      font-style: normal;
+    }
+
+    .about-detail {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(252,236,205,0.15);
+    }
+
+    .about-detail p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: none;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── The Space ──────────────────────────────────────────────────── */
+    #space {
+      background: var(--green-pale);
+    }
+
+    #space h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    #space .lead {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 52ch;
+      margin-bottom: 3.5rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .room-card {
+      background: var(--off-white);
+      border: 1px solid rgba(42,32,24,0.1);
+      padding: 2rem 1.8rem;
+      cursor: default;
+      transition: border-color 0.3s, background 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .room-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(200,135,21,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .room-card:hover { border-color: var(--mustard); background: var(--mustard-pale); }
+    .room-card:hover::before { opacity: 1; }
+
+    .room-card.wide { grid-column: span 2; }
+
+    .room-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--mustard);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .room-card h3 {
+      font-size: 1.3rem;
+      color: var(--green);
+      margin-bottom: 0.7rem;
+    }
+
+    .room-card p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+
+    .room-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+
+    .room-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(200,135,21,0.15);
+      color: var(--text-mid);
+      padding: 0.25rem 0.6rem;
+      border-radius: 1px;
+    }
+
+    /* ── Workshops ──────────────────────────────────────────────────── */
+    #workshops {
+      background: var(--off-white);
+    }
+
+    .workshops-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3.5rem;
+      gap: 2rem;
+    }
+
+    #workshops h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--green);
+    }
+
+    .workshops-intro {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      max-width: 42ch;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .workshops-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(42,32,24,0.08);
+      border: 1px solid rgba(42,32,24,0.08);
+    }
+
+    .workshop-item {
+      background: var(--off-white);
+      padding: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      transition: background 0.3s;
+    }
+
+    .workshop-item:hover { background: var(--mustard-pale); }
+
+    .workshop-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(200,135,21,0.12);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .workshop-item h3 {
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 0.35rem;
+    }
+
+    .workshop-item p {
+      font-size: 0.84rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .teach-in-block {
+      margin-top: 3rem;
+      background: var(--green);
+      padding: 2.5rem;
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      border-radius: 2px;
+    }
+
+    .teach-in-block h3 {
+      font-size: 1.5rem;
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+    }
+
+    .teach-in-block p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    /* ── Membership ─────────────────────────────────────────────────── */
+    #membership {
+      background: var(--off-white);
+      color: var(--charcoal);
+    }
+
+    #membership .section-tag { color: var(--terra); }
+
+    #membership h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    #membership .lead {
+      font-size: 1rem;
+      color: #5a4e42;
+      max-width: 52ch;
+      margin-bottom: 3.5rem;
+      line-height: 1.75;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .plan-card {
+      background: white;
+      border: 1px solid #e0d5c5;
+      padding: 2.4rem 2rem;
+      border-radius: 2px;
+      position: relative;
+      transition: box-shadow 0.3s, transform 0.2s;
+    }
+
+    .plan-card:hover { box-shadow: 0 12px 40px rgba(38,66,50,0.1); transform: translateY(-3px); }
+
+    .plan-card.featured {
+      background: var(--green);
+      border-color: var(--green);
+      color: var(--cream);
+    }
+
+    .plan-badge {
+      position: absolute; top: -0.7rem; left: 2rem;
+      background: var(--mustard);
+      color: var(--charcoal);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.7rem;
+      border-radius: 1px;
+    }
+
+    .plan-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.8rem;
+    }
+
+    .plan-card.featured .plan-name { color: var(--mustard); }
+
+    .plan-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .plan-card.featured .plan-price { color: var(--cream); }
+
+    .plan-price span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #8a7e72;
+    }
+
+    .plan-card.featured .plan-price span { color: var(--muted); }
+
+    .plan-desc {
+      font-size: 0.85rem;
+      color: #6a5e52;
+      margin: 1rem 0 1.6rem;
+      line-height: 1.65;
+    }
+
+    .plan-card.featured .plan-desc { color: var(--muted); }
+
+    .plan-features {
+      list-style: none;
+      font-size: 0.85rem;
+      display: flex; flex-direction: column; gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .plan-features li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      color: #4a3e32;
+    }
+
+    .plan-card.featured .plan-features li { color: var(--cream-dim); }
+
+    .plan-features li::before {
+      content: '–';
+      color: var(--mustard);
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .plan-btn {
+      display: block;
+      text-align: center;
+      background: var(--green);
+      color: var(--cream);
+      padding: 0.8rem 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+      border: none; cursor: pointer; width: 100%;
+    }
+
+    .plan-btn:hover { background: var(--green-deep); }
+
+    .plan-card.featured .plan-btn {
+      background: var(--mustard);
+      color: var(--charcoal);
+    }
+
+    .plan-card.featured .plan-btn:hover { background: #b07610; }
+
+    .equity-note {
+      background: var(--cream);
+      border-left: 3px solid var(--mustard);
+      padding: 1.4rem 1.8rem;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .equity-note p {
+      font-size: 0.9rem;
+      color: #4a3e32;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .equity-note strong { color: var(--green); }
+
+    /* ── Book / Contact ─────────────────────────────────────────────── */
+    #contact {
+      background: var(--green);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    #contact h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+
+    #contact h2 em { color: var(--mustard); font-style: italic; }
+
+    #contact p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-details { display: flex; flex-direction: column; gap: 1.4rem; }
+
+    .contact-item label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mustard);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item span {
+      font-size: 0.95rem;
+      color: var(--cream);
+    }
+
+    .contact-form {
+      display: flex; flex-direction: column; gap: 1.1rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .field label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      background: rgba(252,236,205,0.06);
+      border: 1px solid rgba(252,236,205,0.18);
+      color: var(--cream);
+      padding: 0.85rem 1rem;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder { color: rgba(252,236,205,0.3); }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { border-color: var(--mustard); }
+
+    .field select option { background: var(--green-deep); }
+
+    .field textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      background: var(--terra);
+      color: var(--cream);
+      padding: 1rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none; cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover { background: #9a4820; transform: translateY(-1px); }
+
+    /* ── Host a Workshop ────────────────────────────────────────────── */
+    #host {
+      background: var(--cream);
+      color: var(--charcoal);
+    }
+
+    #host .section-tag { color: var(--terra); }
+
+    .host-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    #host h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--green);
+      margin-bottom: 1.2rem;
+      line-height: 1.12;
+    }
+
+    #host h2 em { font-style: italic; color: var(--terra); }
+
+    #host .lead {
+      font-size: 1rem;
+      color: #3a3228;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      max-width: 52ch;
+    }
+
+    .host-how {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .host-step {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .host-step-num {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: var(--green);
+      color: var(--cream);
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 2px;
+      margin-top: 0.1rem;
+    }
+
+    .host-step strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--green);
+      margin-bottom: 0.2rem;
+    }
+
+    .host-step p {
+      font-size: 0.88rem;
+      color: #5a4e42;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .host-form-wrap {
+      background: var(--green-mid);
+      padding: 3rem;
+      border-radius: 2px;
+      position: sticky;
+      top: 6rem;
+    }
+
+    .host-form-wrap h3 {
+      font-size: 1.4rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .host-form-wrap > p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: none;
+    }
+
+    .host-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .host-form .field label { color: var(--cream-dim); }
+
+    .host-form .field input,
+    .host-form .field select,
+    .host-form .field textarea {
+      background: rgba(252,236,205,0.07);
+      border: 1px solid rgba(252,236,205,0.2);
+      color: var(--cream);
+    }
+
+    .host-form .field input::placeholder,
+    .host-form .field textarea::placeholder { color: rgba(252,236,205,0.3); }
+
+    .host-form .field input:focus,
+    .host-form .field select:focus,
+    .host-form .field textarea:focus { border-color: var(--mustard); }
+
+    .host-form .field select option { background: var(--green-deep); }
+
+    .host-form .field textarea { min-height: 100px; }
+
+    @media (max-width: 900px) {
+      .host-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .host-form-wrap { padding: 2rem; position: static; }
+    }
+
+    /* ── Footer ─────────────────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(200,135,21,0.12);
+      padding: 3rem 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-brand span { color: var(--mustard); }
+
+    .footer-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(252,236,205,0.45);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--mustard); }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(252,236,205,0.25);
+    }
+
+    /* ── Scroll Reveal ──────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .nav-links li:not(:last-child) { display: none; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      .about-quote { position: static; }
+
+      .rooms-grid { grid-template-columns: 1fr; }
+      .room-card.wide { grid-column: span 1; }
+
+      .workshops-header { flex-direction: column; align-items: flex-start; }
+
+      .workshops-grid { grid-template-columns: 1fr; }
+
+      .plans-grid { grid-template-columns: 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .hero-h1 { font-size: 3rem; }
+      .hero-address { display: none; }
+
+      .teach-in-block { flex-direction: column; gap: 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── Hero Logo ─────────────────────────────────────────────────── */
+    .hero-logo-wrap {
+      position: absolute;
+      top: 50%;
+      right: 6%;
+      transform: translateY(-55%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.92;
+      pointer-events: none;
+    }
+
+    .hero-logo-wrap svg {
+      width: clamp(180px, 22vw, 300px);
+      height: auto;
+      filter: drop-shadow(0 8px 32px rgba(42,32,24,0.12));
+    }
+
+    @media (max-width: 900px) {
+      .hero-logo-wrap { display: none; }
+    }
+
+    /* ── Sticky Corner Logo ─────────────────────────────────────────── */
+    #sticky-logo {
+      position: fixed;
+      bottom: 1.6rem;
+      right: 1.6rem;
+      z-index: 200;
+      width: 52px; height: 52px;
+      opacity: 0;
+      transform: scale(0.7);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    #sticky-logo.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #sticky-logo svg {
+      width: 100%; height: 100%;
+      filter: drop-shadow(0 2px 8px rgba(42,32,24,0.18));
+    }
+
+    /* ── Bulletin Board ─────────────────────────────────────────────── */
+    #bulletin {
+      background: #f0e6d3;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #bulletin::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 27px,
+        rgba(42,32,24,0.04) 27px, rgba(42,32,24,0.04) 28px
+      );
+      pointer-events: none;
+    }
+
+    .bulletin-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      gap: 2rem;
+      position: relative;
+    }
+
+    #bulletin h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--green);
+      line-height: 1.12;
+    }
+
+    .bulletin-meta {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .bulletin-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      position: relative;
+    }
+
+    .pin-card {
+      background: var(--off-white);
+      padding: 1.6rem 1.5rem 1.5rem;
+      border-radius: 2px;
+      position: relative;
+      box-shadow: 0 2px 12px rgba(42,32,24,0.08), 0 1px 3px rgba(42,32,24,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pin-card:hover {
+      transform: translateY(-3px) rotate(0deg);
+      box-shadow: 0 8px 24px rgba(42,32,24,0.12);
+    }
+
+    .pin-card.tilt-left  { transform: rotate(-0.8deg); }
+    .pin-card.tilt-right { transform: rotate(0.6deg);  }
+    .pin-card.tilt-left:hover, .pin-card.tilt-right:hover { transform: rotate(0deg) translateY(-3px); }
+
+    .pin-card.wide { grid-column: span 2; }
+
+    .pin-card.tone-mustard { background: var(--mustard-pale); }
+    .pin-card.tone-terra   { background: var(--terra-pale);   }
+    .pin-card.tone-sage    { background: var(--green-pale);   }
+    .pin-card.tone-white   { background: var(--off-white);    }
+
+    /* Pushpin */
+    .pin-card::before {
+      content: '';
+      position: absolute;
+      top: -7px; left: 50%;
+      transform: translateX(-50%);
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: var(--terra);
+      box-shadow: 0 1px 4px rgba(42,32,24,0.25);
+    }
+
+    .pin-card.tone-mustard::before { background: var(--green);   }
+    .pin-card.tone-terra::before   { background: var(--mustard); }
+    .pin-card.tone-sage::before    { background: var(--terra);   }
+
+    .pin-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .pin-card.tone-mustard .pin-label { color: var(--green); }
+    .pin-card.tone-sage .pin-label    { color: var(--terra); }
+
+    .pin-card h3 {
+      font-size: 1rem;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .pin-card p {
+      font-size: 0.84rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 0.8rem;
+    }
+
+    .pin-date {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--terra);
+      letter-spacing: 0.04em;
+    }
+
+    .pin-date::before {
+      content: '📅';
+      font-size: 0.7rem;
+    }
+
+    .pin-card.tone-mustard .pin-date { color: var(--green); }
+
+    .pin-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--terra);
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+
+    .pin-link:hover { opacity: 0.7; }
+    .pin-card.tone-mustard .pin-link { color: var(--green); }
+
+    .pin-spots {
+      display: inline-block;
+      background: var(--terra);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 1px;
+      margin-top: 0.6rem;
+    }
+
+    .pin-card.tone-mustard .pin-spots { background: var(--green); }
+
+    @media (max-width: 900px) {
+      .bulletin-grid { grid-template-columns: 1fr; }
+      .pin-card.wide { grid-column: span 1; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── SVG Defs: Fire Logo ── -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="fire-logo" viewBox="0 0 120 120">
+      <!-- Outer ring -->
+      <circle cx="60" cy="60" r="56" fill="#264232"/>
+      <circle cx="60" cy="60" r="56" fill="none" stroke="#c88715" stroke-width="2.5"/>
+      <!-- Circular text path -->
+      <defs>
+        <path id="circlePath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/>
+      </defs>
+      <text font-family="'Playfair Display', serif" font-size="8.5" fill="#c88715" letter-spacing="3.2" font-weight="700">
+        <textPath href="#circlePath" startOffset="2%">KILOMBO · STUDIOS · TORONTO ·</textPath>
+      </text>
+      <!-- Flame body -->
+      <path d="M60 28
+               C60 28 50 40 47 52
+               C44 62 47 70 52 74
+               C50 68 51 63 54 60
+               C55 70 58 75 60 78
+               C62 75 65 70 66 60
+               C69 63 70 68 68 74
+               C73 70 76 62 73 52
+               C70 40 60 28 60 28Z"
+            fill="#c88715"/>
+      <!-- Inner flame highlight -->
+      <path d="M60 44
+               C60 44 55 52 53 60
+               C52 65 54 70 57 72
+               C56 67 57 63 59 61
+               C59.5 66 60.5 69 62 71
+               C63.5 69 65 65 65 60
+               C66 63 67 67 66 72
+               C69 70 71 65 70 60
+               C68 52 60 44 60 44Z"
+            fill="#fceccd" opacity="0.88"/>
+      <!-- Small glow at base -->
+      <ellipse cx="60" cy="76" rx="8" ry="3.5" fill="#c88715" opacity="0.4"/>
+    </symbol>
+  </svg>
+
+
+  <!-- ── Sticky Logo ── -->
+  <a href="#hero" id="sticky-logo" aria-label="Back to top">
+    <svg><use href="#fire-logo"/></svg>
+  </a>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <a href="#hero" class="nav-logo">KILOMBO <span>STUDIOS</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#space">The Space</a></li>
+      <li><a href="#workshops">Workshops</a></li>
+      <li><a href="#bulletin">What's On</a></li>
+      <li><a href="#host">Host a Workshop</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#contact" class="nav-cta">Book a Tour</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="hero-texture"></div>
+    <!-- Fire logo — top-right of hero -->
+    <div class="hero-logo-wrap">
+      <svg><use href="#fire-logo"/></svg>
+    </div>
+    <p class="hero-tag">Little Portugal, Toronto &nbsp;&middot;&nbsp; 1282 Dundas St. W</p>
+    <h1 class="hero-h1">Space to create.<br><em>Room to belong.</em></h1>
+    <p class="hero-body">
+      Kilombo Studios is a community photography and creative space rooted in accessibility, self-expression, and visual sovereignty — built for the artists, migrants, and storytellers who needed a space like this to exist.
+    </p>
+    <div class="hero-actions">
+      <a href="#membership" class="btn-primary">Become a Member</a>
+      <a href="#contact" class="btn-outline">Book a Tour</a>
+    </div>
+    <p class="hero-address">1282 Dundas St. W &nbsp;&middot;&nbsp; Little Portugal &nbsp;&middot;&nbsp; Toronto, ON</p>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="section-tag">Our Story</span>
+          <h2>Built from <em>within</em> the community.</h2>
+          <p>
+            Kilombo Studios was founded in 2024 by Joyce, a multidisciplinary artist who went looking for affordable studio space in Toronto and decided to build it herself instead.
+          </p>
+          <p>
+            The space at 1282 Dundas St. W was previously home to an immigration consultancy office — for many people, a first point of contact with a new life in Canada. Kilombo honours that legacy. It remains a place where displaced people and those with ties to migration can arrive, create, and be seen.
+          </p>
+          <p>
+            Since opening, Kilombo has hosted over five community workshops — batik printmaking, concrete décor, DJ spinning, candle and scent-making, French language sessions — reaching more than 50 participants with no marketing budget.
+          </p>
+          <div class="about-values">
+            <div class="value-item">
+              <strong>Accessibility</strong>
+              <p>Professional tools at prices that don't exclude the people who need them most.</p>
+            </div>
+            <div class="value-item">
+              <strong>Visual Sovereignty</strong>
+              <p>Your story, told in your own voice, with resources that match your vision.</p>
+            </div>
+            <div class="value-item">
+              <strong>Community</strong>
+              <p>A space that belongs to its people — not just a venue they pass through.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s">
+          <div class="about-quote">
+            <blockquote>
+              "Kilombo refers to the sovereign African communities founded by freedom seekers — spaces of refuge, self-determination, and collective creativity. This studio carries that spirit forward."
+            </blockquote>
+            <cite>Joyce &mdash; Founder, Kilombo Studios</cite>
+            <div class="about-detail">
+              <p>Open to all. Especially built for migrants, Indigenous, Black, and racialized communities.</p>
+              <p>Serving Little Portugal and the wider Toronto creative community since 2024.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Space ── -->
+  <section id="space">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-tag">The Space</span>
+        <h2>Five rooms. Endless work.</h2>
+        <p class="lead">
+          A full-floor studio at 1282 Dundas St. W with everything you need to shoot, develop, edit, print, and share — all under one roof, at prices designed for working artists.
+        </p>
+      </div>
+      <div class="rooms-grid">
+        <div class="room-card wide reveal">
+          <p class="room-number">Room 01 &nbsp;&middot;&nbsp; The Studio</p>
+          <h3>Photo Studio</h3>
+          <p>Full shooting setup for portraits, fashion, product photography, and editorial work. Ceiling rigs, strobe and RGB lighting, seamless backdrops on rollers, a styling corner with clothes rack and steamer, and an "On Air" sign so your session stays uninterrupted.</p>
+          <div class="room-tags">
+            <span class="room-tag">Strobe Lighting</span>
+            <span class="room-tag">RGB + LED</span>
+            <span class="room-tag">Seamless Backdrops</span>
+            <span class="room-tag">Smart Lock Access</span>
+          </div>
+        </div>
+        <div class="room-card reveal" style="transition-delay:0.1s">
+          <p class="room-number">Room 02</p>
+          <h3>Darkroom</h3>
+          <p>Film developing and black-and-white printing. Enlargers, safelights, developing tanks, ventilation, and full chemical storage. Learn to develop your own film.</p>
+          <div class="room-tags">
+            <span class="room-tag">Film Developing</span>
+            <span class="room-tag">B&W Printing</span>
+            <span class="room-tag">Ventilated</span>
+          </div>
+        </div>
+        <div class="room-card reveal" style="transition-delay:0.15s">
+          <p class="room-number">Room 03</p>
+          <h3>Editing Suite</h3>
+          <p>High-performance desktops with Adobe Suite, colour-calibrated monitors, Wacom tablets, and SD card readers. Your post-production space.</p>
+          <div class="room-tags">
+            <span class="room-tag">Adobe Suite</span>
+            <span class="room-tag">Wacom Tablets</span>
+            <span class="room-tag">Colour-Calibrated</span>
+          </div>
+        </div>
+        <div class="room-card reveal" style="transition-delay:0.2s">
+          <p class="room-number">Room 04</p>
+          <h3>Print Station</h3>
+          <p>Professional photo printing, zine making, flatbed scanning, paper cutting, and binding. Print your own work and publish it.</p>
+          <div class="room-tags">
+            <span class="room-tag">Photo Printing</span>
+            <span class="room-tag">Zine Making</span>
+            <span class="room-tag">Scanning</span>
+          </div>
+        </div>
+        <div class="room-card wide reveal" style="transition-delay:0.25s">
+          <p class="room-number">The Foyer</p>
+          <h3>Gallery + Community Space</h3>
+          <p>A rotating exhibition space, pop-up market, lounge, and workshop zone. Open to walk-ins. Independent vendors can rent wall or shelf space to sell zines, prints, and work. It is the heart of Kilombo — the room where the community actually gathers.</p>
+          <div class="room-tags">
+            <span class="room-tag">Rotating Exhibitions</span>
+            <span class="room-tag">Pop-Up Market</span>
+            <span class="room-tag">Workshop Zone</span>
+            <span class="room-tag">Vendor Space</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Workshops ── -->
+  <section id="workshops">
+    <div class="section-inner">
+      <div class="workshops-header reveal">
+        <div>
+          <span class="section-tag">Programming</span>
+          <h2>Workshops &amp; Teach-Ins</h2>
+        </div>
+        <p class="workshops-intro">
+          Skill-building for everyone. From your first roll of film to a public exhibition — Kilombo takes you the full distance.
+        </p>
+      </div>
+      <div class="workshops-grid reveal">
+        <div class="workshop-item">
+          <div class="workshop-icon">📷</div>
+          <div>
+            <h3>Intro to 35mm Film Photography</h3>
+            <p>Load your first roll, understand light and exposure, and leave with one roll of exposed film ready to develop.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🧪</div>
+          <div>
+            <h3>DIY Film Developing</h3>
+            <p>Develop your own negatives at home. Learn the chemistry, the process, and how to scan and share your results.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🖼</div>
+          <div>
+            <h3>Darkroom Printing</h3>
+            <p>Work in the darkroom to produce black-and-white prints from your own negatives. Leave with 3–4 finished prints.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">📖</div>
+          <div>
+            <h3>Photo Zine Making</h3>
+            <p>Fold, cut, and bind your own handmade zine using images and handmade paper. A full publication in two sessions.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🪡</div>
+          <div>
+            <h3>Batik Printmaking</h3>
+            <p>African textile traditions applied to contemporary printmaking. Wax-resist dyeing on fabric using traditional motifs.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">📄</div>
+          <div>
+            <h3>Paper Making</h3>
+            <p>Turn shredded paper waste into handmade sheets for art and zines. Sustainability and craft in one session.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🎨</div>
+          <div>
+            <h3>Storytelling Through Photography</h3>
+            <p>Build a personal photo essay or image series with editorial guidance. A one-session creative development workshop.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🧶</div>
+          <div>
+            <h3>Crocheting &amp; Fibre Arts</h3>
+            <p>Community skill-sharing. Learn from people who carry craft knowledge — and share your own if you have it.</p>
+          </div>
+        </div>
+      </div>
+      <div class="teach-in-block reveal">
+        <div style="flex:1">
+          <h3>Open Teach-Ins</h3>
+          <p>Have a skill to share? Kilombo's open teach-in model invites any community member to propose and run a workshop. We provide the space, materials, and promotion. You keep a portion of registration fees. Your knowledge has value here.</p>
+        </div>
+        <a href="#contact" class="btn-outline">Propose a Workshop</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Host a Workshop ── -->
+  <section id="host">
+    <div class="section-inner">
+      <div class="host-grid">
+        <div class="reveal">
+          <span class="section-tag">Open Teach-Ins</span>
+          <h2>Want to host a <em>workshop?</em></h2>
+          <p class="lead">
+            You don't need a formal teaching background. You need a skill, a willingness to share it, and a community ready to receive it. Kilombo provides everything else.
+          </p>
+          <div class="host-how">
+            <div class="host-step">
+              <div class="host-step-num">1</div>
+              <div>
+                <strong>Tell us your idea</strong>
+                <p>Fill out the form with your workshop concept, the skill you'd like to share, and how many sessions you're thinking. No idea is too niche or too simple.</p>
+              </div>
+            </div>
+            <div class="host-step">
+              <div class="host-step-num">2</div>
+              <div>
+                <strong>We connect with you</strong>
+                <p>Joyce will reach out within a week to talk through your idea, confirm the space and materials needed, and set a date that works for you.</p>
+              </div>
+            </div>
+            <div class="host-step">
+              <div class="host-step-num">3</div>
+              <div>
+                <strong>We handle the logistics</strong>
+                <p>Kilombo promotes the workshop, manages registration, provides the space and materials support, and takes care of the admin. You just show up and teach.</p>
+              </div>
+            </div>
+            <div class="host-step">
+              <div class="host-step-num">4</div>
+              <div>
+                <strong>You get paid</strong>
+                <p>Facilitators receive a portion of registration fees. Your time and knowledge have real value here, and we make sure that's reflected.</p>
+              </div>
+            </div>
+          </div>
+          <div class="equity-note" style="background: #f0e8d8;">
+            <p><strong>All disciplines welcome.</strong> Photography, craft, language, music, cooking, movement, technology, storytelling. If it's a skill you carry, there is someone in this community who wants to learn it from you.</p>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s">
+          <div class="host-form-wrap">
+            <h3>Propose a Workshop</h3>
+            <p>Tell us what you'd like to teach. We'll take it from there.</p>
+            <form class="host-form" onsubmit="handleHostSubmit(event)">
+              <div class="form-row">
+                <div class="field">
+                  <label>Your Name</label>
+                  <input type="text" placeholder="First name" required />
+                </div>
+                <div class="field">
+                  <label>Pronouns</label>
+                  <input type="text" placeholder="she/her, they/them..." />
+                </div>
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="email" placeholder="you@email.com" required />
+              </div>
+              <div class="field">
+                <label>Workshop Title or Idea</label>
+                <input type="text" placeholder="e.g. Intro to Natural Dyeing, Basic Music Theory..." required />
+              </div>
+              <div class="field">
+                <label>Discipline or Category</label>
+                <select>
+                  <option value="">Select one</option>
+                  <option>Photography or Film</option>
+                  <option>Visual Art or Craft</option>
+                  <option>Textile or Fibre Arts</option>
+                  <option>Music or Sound</option>
+                  <option>Language or Writing</option>
+                  <option>Food or Cooking</option>
+                  <option>Movement or Dance</option>
+                  <option>Technology or Design</option>
+                  <option>Wellness or Community Care</option>
+                  <option>Something Else</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>How many sessions do you have in mind?</label>
+                <select>
+                  <option value="">Select one</option>
+                  <option>One session (drop-in)</option>
+                  <option>Two sessions</option>
+                  <option>Three or more sessions</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Tell us about your workshop</label>
+                <textarea placeholder="What would participants learn? What materials would be needed? Any experience level requirements? Any other details..."></textarea>
+              </div>
+              <div class="field">
+                <label>Have you taught or facilitated before?</label>
+                <select>
+                  <option value="">Select one</option>
+                  <option>Yes, formally</option>
+                  <option>Yes, informally</option>
+                  <option>No, this would be my first time</option>
+                </select>
+              </div>
+              <button type="submit" class="form-submit">Submit Proposal</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Bulletin Board ── -->
+  <section id="bulletin">
+    <div class="section-inner">
+      <div class="bulletin-header reveal">
+        <div>
+          <span class="section-tag">What's On</span>
+          <h2>The Board</h2>
+        </div>
+        <p class="bulletin-meta">Updated regularly &nbsp;&middot;&nbsp; July 2026</p>
+      </div>
+      <div class="bulletin-grid">
+
+        <div class="pin-card tone-mustard tilt-right reveal">
+          <span class="pin-label">Upcoming Workshop</span>
+          <h3>Intro to 35mm Film Photography</h3>
+          <p>Load your first roll, understand light and exposure, and shoot a full roll by the end of the session. All equipment provided. Beginners welcome.</p>
+          <div class="pin-date">Saturday, July 19 &nbsp;&middot;&nbsp; 2–5pm</div>
+          <span class="pin-spots">6 spots left</span><br>
+          <a href="#contact" class="pin-link">Register</a>
+        </div>
+
+        <div class="pin-card tone-sage reveal" style="transition-delay:0.08s">
+          <span class="pin-label">Announcement</span>
+          <h3>Darkroom Now Open for Members</h3>
+          <p>The darkroom is fully set up and ready. Book a free 30-minute orientation session to get access to film developing and B&W printing.</p>
+          <a href="#contact" class="pin-link">Book Orientation</a>
+        </div>
+
+        <div class="pin-card tone-white tilt-left reveal" style="transition-delay:0.12s">
+          <span class="pin-label">Call-Out</span>
+          <h3>Founding Exhibition — August 2026</h3>
+          <p>Kilombo's first public exhibition. We're calling on members and community artists to submit work. All mediums considered. Free to participate.</p>
+          <div class="pin-date">Submissions close July 31</div>
+          <a href="#contact" class="pin-link">Submit Your Work</a>
+        </div>
+
+        <div class="pin-card tone-terra wide reveal" style="transition-delay:0.16s">
+          <span class="pin-label">Open Access</span>
+          <h3>Drop-In Thursdays</h3>
+          <p>The photo studio is open every Thursday from 4–8pm for non-members. No booking required — just show up. $65/hr, pay at the door. Gear available on request. Bring your ideas.</p>
+          <div class="pin-date">Every Thursday &nbsp;&middot;&nbsp; 4–8pm</div>
+        </div>
+
+        <div class="pin-card tone-white tilt-right reveal" style="transition-delay:0.2s">
+          <span class="pin-label">Upcoming Workshop</span>
+          <h3>Paper Making from Recycled Materials</h3>
+          <p>Turn shredded paper into handmade sheets for zines and artwork. Workshop run by the Kilombo community. Materials included.</p>
+          <div class="pin-date">Saturday, July 26 &nbsp;&middot;&nbsp; 1–4pm</div>
+          <span class="pin-spots">8 spots</span><br>
+          <a href="#contact" class="pin-link">Register</a>
+        </div>
+
+        <div class="pin-card tone-mustard reveal" style="transition-delay:0.24s">
+          <span class="pin-label">Volunteer</span>
+          <h3>Saturday Front Desk — Earn Studio Credit</h3>
+          <p>We're looking for community members to help staff the studio on Saturdays. In exchange: studio credit and first access to new workshops.</p>
+          <a href="#contact" class="pin-link">Get in Touch</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Membership ── -->
+  <section id="membership">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-tag">Access</span>
+        <h2>Membership &amp; Studio Access</h2>
+        <p class="lead">Kilombo is built to be used. Our rates sit well below the Toronto studio average of $105/hr — because professional space should not be a luxury.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="plan-card reveal">
+          <p class="plan-name">Starter</p>
+          <p class="plan-price">$300<span>/month</span></p>
+          <p class="plan-desc">For those starting out or shooting less frequently. Full access to all rooms — at half the rate of most Toronto studios.</p>
+          <ul class="plan-features">
+            <li>10 studio hours per month ($30/hr effective)</li>
+            <li>Access to all rooms</li>
+            <li>Gear sign-out system</li>
+            <li>Workshop discounts</li>
+            <li>Kitchen and lounge access</li>
+          </ul>
+          <a href="#contact" class="plan-btn">Get Started</a>
+        </div>
+        <div class="plan-card featured reveal" style="transition-delay:0.1s">
+          <div class="plan-badge">Most Popular</div>
+          <p class="plan-name">Standard</p>
+          <p class="plan-price">$500<span>/month</span></p>
+          <p class="plan-desc">The full Kilombo experience. Ideal for active photographers and working artists who need regular studio access.</p>
+          <ul class="plan-features">
+            <li>20 studio hours per month ($25/hr effective)</li>
+            <li>Access to all rooms</li>
+            <li>Gear sign-out system</li>
+            <li>Workshop priority booking</li>
+            <li>Kitchen and lounge access</li>
+            <li>Foyer exhibition eligibility</li>
+          </ul>
+          <a href="#contact" class="plan-btn">Get Started</a>
+        </div>
+        <div class="plan-card reveal" style="transition-delay:0.2s">
+          <p class="plan-name">Drop-In</p>
+          <p class="plan-price">$65<span>/hour</span></p>
+          <p class="plan-desc">No commitment. Book when you need it — personal projects, product shoots, headshots, and brand content.</p>
+          <ul class="plan-features">
+            <li>Single-session booking</li>
+            <li>Access to the photo studio</li>
+            <li>Gear available on request</li>
+            <li>No minimum commitment</li>
+            <li>Online booking</li>
+          </ul>
+          <a href="#contact" class="plan-btn">Book a Session</a>
+        </div>
+      </div>
+      <div class="equity-note reveal">
+        <p><strong>Access should never depend on income.</strong> Kilombo has a sliding-scale scholarship fund for workshop access, a community barter and exchange program, and youth pricing for participants under 25. If cost is a barrier, reach out — we will find a way to make it work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="reveal">
+          <span class="section-tag">Get in Touch</span>
+          <h2>Come see the <em>space.</em></h2>
+          <p>Book a tour, ask about membership, propose a workshop, or just introduce yourself. We want to hear from you.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <label>Address</label>
+              <span>1282 Dundas St. W, Little Portugal<br>Toronto, ON</span>
+            </div>
+            <div class="contact-item">
+              <label>Email</label>
+              <span>kilombostudios@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <label>Instagram</label>
+              <span>@kilombostudios</span>
+            </div>
+            <div class="contact-item">
+              <label>Hours</label>
+              <span>By appointment + member access<br>Workshops by schedule</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.15s">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="field">
+                <label>First Name</label>
+                <input type="text" placeholder="Joyce" required />
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Silva" required />
+              </div>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" placeholder="you@email.com" required />
+            </div>
+            <div class="field">
+              <label>I'm interested in</label>
+              <select>
+                <option value="">Select one</option>
+                <option>Starter Membership ($300/mo)</option>
+                <option>Standard Membership ($500/mo)</option>
+                <option>Drop-In Session ($65/hr)</option>
+                <option>Book a Tour</option>
+                <option>Propose a Workshop</option>
+                <option>Vendor Space in the Foyer</option>
+                <option>Office / Studio Space Rental</option>
+                <option>Something Else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Message</label>
+              <textarea placeholder="Tell us a bit about yourself and what you're looking for..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">KILOMBO <span>STUDIOS</span></div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#space">The Space</a></li>
+        <li><a href="#workshops">Workshops</a></li>
+        <li><a href="#bulletin">What's On</a></li>
+      <li><a href="#host">Host a Workshop</a></li>
+      <li><a href="#membership">Membership</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">1282 Dundas St. W, Toronto &nbsp;&middot;&nbsp; &copy; 2026 Kilombo Studios</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Scroll reveal ────────────────────────────────────────────────
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // ── Nav scroll style ─────────────────────────────────────────────
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 60
+        ? 'rgba(253,246,236,0.99)'
+        : 'rgba(253,246,236,0.96)';
+    });
+
+    // ── Form submit ──────────────────────────────────────────────────
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Message Sent';
+      btn.style.background = '#264232';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+
+    function handleHostSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Proposal Sent';
+      btn.style.background = '#264232';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Submit Proposal';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+
+    // ── Sticky logo visibility ───────────────────────────────────────
+    const stickyLogo = document.getElementById('sticky-logo');
+    const heroSection = document.getElementById('hero');
+    const stickyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          stickyLogo.classList.add('visible');
+        } else {
+          stickyLogo.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    stickyObserver.observe(heroSection);
+  </script>
+</body>
+</html>
