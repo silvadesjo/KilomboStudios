@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kilombo Studios — 1282 Dundas St. W, Toronto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── SVG Defs: Fire Logo ── -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="fire-logo" viewBox="0 0 120 120">
+      <!-- Outer ring -->
+      <circle cx="60" cy="60" r="56" fill="#264232"/>
+      <circle cx="60" cy="60" r="56" fill="none" stroke="#c88715" stroke-width="2.5"/>
+      <!-- Circular text path -->
+      <defs>
+        <path id="circlePath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/>
+      </defs>
+      <text font-family="'Playfair Display', serif" font-size="8.5" fill="#c88715" letter-spacing="3.2" font-weight="700">
+        <textPath href="#circlePath" startOffset="2%">KILOMBO · STUDIOS · TORONTO ·</textPath>
+      </text>
+      <!-- Flame body -->
+      <path d="M60 28
+               C60 28 50 40 47 52
+               C44 62 47 70 52 74
+               C50 68 51 63 54 60
+               C55 70 58 75 60 78
+               C62 75 65 70 66 60
+               C69 63 70 68 68 74
+               C73 70 76 62 73 52
+               C70 40 60 28 60 28Z"
+            fill="#c88715"/>
+      <!-- Inner flame highlight -->
+      <path d="M60 44
+               C60 44 55 52 53 60
+               C52 65 54 70 57 72
+               C56 67 57 63 59 61
+               C59.5 66 60.5 69 62 71
+               C63.5 69 65 65 65 60
+               C66 63 67 67 66 72
+               C69 70 71 65 70 60
+               C68 52 60 44 60 44Z"
+            fill="#fceccd" opacity="0.88"/>
+      <!-- Small glow at base -->
+      <ellipse cx="60" cy="76" rx="8" ry="3.5" fill="#c88715" opacity="0.4"/>
+    </symbol>
+  </svg>
+
+
+  <!-- ── Sticky Logo ── -->
+  <a href="#hero" id="sticky-logo" aria-label="Back to top">
+    <svg><use href="#fire-logo"/></svg>
+  </a>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <a href="#hero" class="nav-logo">KILOMBO <span>STUDIOS</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#space">The Space</a></li>
+      <li><a href="#workshops">Workshops</a></li>
+      <li><a href="#bulletin">What's On</a></li>
+      <li><a href="#host">Host a Workshop</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#contact" class="nav-cta">Book a Tour</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="hero-texture"></div>
+    <!-- Fire logo — top-right of hero -->
+    <div class="hero-logo-wrap">
+      <svg><use href="#fire-logo"/></svg>
+    </div>
+    <p class="hero-tag">Little Portugal, Toronto &nbsp;&middot;&nbsp; 1282 Dundas St. W</p>
+    <h1 class="hero-h1">Space to create.<br><em>Room to belong.</em></h1>
+    <p class="hero-body">
+      Kilombo Studios is a community photography and creative space rooted in accessibility, self-expression, and visual sovereignty — built for the artists, migrants, and storytellers who needed a space like this to exist.
+    </p>
+    <div class="hero-actions">
+      <a href="#membership" class="btn-primary">Become a Member</a>
+      <a href="#contact" class="btn-outline">Book a Tour</a>
+    </div>
+    <p class="hero-address">1282 Dundas St. W &nbsp;&middot;&nbsp; Little Portugal &nbsp;&middot;&nbsp; Toronto, ON</p>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="section-tag">Our Story</span>
+          <h2>Built from <em>within</em> the community.</h2>
+          <p>
+            Kilombo Studios was founded in 2024 by Joyce, a multidisciplinary artist who went looking for affordable studio space in Toronto and decided to build it herself instead.
+          </p>
+          <p>
+            The space at 1282 Dundas St. W was previously home to an immigration consultancy office — for many people, a first point of contact with a new life in Canada. Kilombo honours that legacy. It remains a place where displaced people and those with ties to migration can arrive, create, and be seen.
+          </p>
+          <p>
+            Since opening, Kilombo has hosted over five community workshops — batik printmaking, concrete décor, DJ spinning, candle and scent-making, French language sessions — reaching more than 50 participants with no marketing budget.
+          </p>
+          <div class="about-values">
+            <div class="value-item">
+              <strong>Accessibility</strong>
+              <p>Professional tools at prices that don't exclude the people who need them most.</p>
+            </div>
+            <div class="value-item">
+              <strong>Visual Sovereignty</strong>
+              <p>Your story, told in your own voice, with resources that match your vision.</p>
+            </div>
+            <div class="value-item">
+              <strong>Community</strong>
+              <p>A space that belongs to its people — not just a venue they pass through.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s">
+          <div class="about-quote">
+            <blockquote>
+              "Kilombo refers to the sovereign African communities founded by freedom seekers — spaces of refuge, self-determination, and collective creativity. This studio carries that spirit forward."
+            </blockquote>
+            <cite>Joyce &mdash; Founder, Kilombo Studios</cite>
+            <div class="about-detail">
+              <p>Open to all. Especially built for migrants, Indigenous, Black, and racialized communities.</p>
+              <p>Serving Little Portugal and the wider Toronto creative community since 2024.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Space ── -->
+  <section id="space">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-tag">The Space</span>
+        <h2>Five rooms. Endless work.</h2>
+        <p class="lead">
+          A full-floor studio at 1282 Dundas St. W with everything you need to shoot, develop, edit, print, and share — all under one roof, at prices designed for working artists.
+        </p>
+      </div>
+      <div class="rooms-grid">
+        <div class="room-card wide reveal">
+          <p class="room-number">Room 01 &nbsp;&middot;&nbsp; The Studio</p>
+          <h3>Photo Studio</h3>
+          <p>Full shooting setup for portraits, fashion, product photography, and editorial work. Ceiling rigs, strobe and RGB lighting, seamless backdrops on rollers, a styling corner with clothes rack and steamer, and an "On Air" sign so your session stays uninterrupted.</p>
+          <div class="room-tags">
+            <span class="room-tag">Strobe Lighting</span>
+            <span class="room-tag">RGB + LED</span>
+            <span class="room-tag">Seamless Backdrops</span>
+            <span class="room-tag">Smart Lock Access</span>
+          </div>
+        </div>
+        <div class="room-card reveal" style="transition-delay:0.1s">
+          <p class="room-number">Room 02</p>
+          <h3>Darkroom</h3>
+          <p>Film developing and black-and-white printing. Enlargers, safelights, developing tanks, ventilation, and full chemical storage. Learn to develop your own film.</p>
+          <div class="room-tags">
+            <span class="room-tag">Film Developing</span>
+            <span class="room-tag">B&W Printing</span>
+            <span class="room-tag">Ventilated</span>
+          </div>
+        </div>
+        <div class="room-card reveal" style="transition-delay:0.15s">
+          <p class="room-number">Room 03</p>
+          <h3>Editing Suite</h3>
+          <p>High-performance desktops with Adobe Suite, colour-calibrated monitors, Wacom tablets, and SD card readers. Your post-production space.</p>
+          <div class="room-tags">
+            <span class="room-tag">Adobe Suite</span>
+            <span class="room-tag">Wacom Tablets</span>
+            <span class="room-tag">Colour-Calibrated</span>
+          </div>
+        </div>
+        <div class="room-card reveal" style="transition-delay:0.2s">
+          <p class="room-number">Room 04</p>
+          <h3>Print Station</h3>
+          <p>Professional photo printing, zine making, flatbed scanning, paper cutting, and binding. Print your own work and publish it.</p>
+          <div class="room-tags">
+            <span class="room-tag">Photo Printing</span>
+            <span class="room-tag">Zine Making</span>
+            <span class="room-tag">Scanning</span>
+          </div>
+        </div>
+        <div class="room-card wide reveal" style="transition-delay:0.25s">
+          <p class="room-number">The Foyer</p>
+          <h3>Gallery + Community Space</h3>
+          <p>A rotating exhibition space, pop-up market, lounge, and workshop zone. Open to walk-ins. Independent vendors can rent wall or shelf space to sell zines, prints, and work. It is the heart of Kilombo — the room where the community actually gathers.</p>
+          <div class="room-tags">
+            <span class="room-tag">Rotating Exhibitions</span>
+            <span class="room-tag">Pop-Up Market</span>
+            <span class="room-tag">Workshop Zone</span>
+            <span class="room-tag">Vendor Space</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Workshops ── -->
+  <section id="workshops">
+    <div class="section-inner">
+      <div class="workshops-header reveal">
+        <div>
+          <span class="section-tag">Programming</span>
+          <h2>Workshops &amp; Teach-Ins</h2>
+        </div>
+        <p class="workshops-intro">
+          Skill-building for everyone. From your first roll of film to a public exhibition — Kilombo takes you the full distance.
+        </p>
+      </div>
+      <div class="workshops-grid reveal">
+        <div class="workshop-item">
+          <div class="workshop-icon">📷</div>
+          <div>
+            <h3>Intro to 35mm Film Photography</h3>
+            <p>Load your first roll, understand light and exposure, and leave with one roll of exposed film ready to develop.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🧪</div>
+          <div>
+            <h3>DIY Film Developing</h3>
+            <p>Develop your own negatives at home. Learn the chemistry, the process, and how to scan and share your results.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🖼</div>
+          <div>
+            <h3>Darkroom Printing</h3>
+            <p>Work in the darkroom to produce black-and-white prints from your own negatives. Leave with 3–4 finished prints.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">📖</div>
+          <div>
+            <h3>Photo Zine Making</h3>
+            <p>Fold, cut, and bind your own handmade zine using images and handmade paper. A full publication in two sessions.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🪡</div>
+          <div>
+            <h3>Batik Printmaking</h3>
+            <p>African textile traditions applied to contemporary printmaking. Wax-resist dyeing on fabric using traditional motifs.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">📄</div>
+          <div>
+            <h3>Paper Making</h3>
+            <p>Turn shredded paper waste into handmade sheets for art and zines. Sustainability and craft in one session.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🎨</div>
+          <div>
+            <h3>Storytelling Through Photography</h3>
+            <p>Build a personal photo essay or image series with editorial guidance. A one-session creative development workshop.</p>
+          </div>
+        </div>
+        <div class="workshop-item">
+          <div class="workshop-icon">🧶</div>
+          <div>
+            <h3>Crocheting &amp; Fibre Arts</h3>
+            <p>Community skill-sharing. Learn from people who carry craft knowledge — and share your own if you have it.</p>
+          </div>
+        </div>
+      </div>
+      <div class="teach-in-block reveal">
+        <div style="flex:1">
+          <h3>Open Teach-Ins</h3>
+          <p>Have a skill to share? Kilombo's open teach-in model invites any community member to propose and run a workshop. We provide the space, materials, and promotion. You keep a portion of registration fees. Your knowledge has value here.</p>
+        </div>
+        <a href="#contact" class="btn-outline">Propose a Workshop</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Host a Workshop ── -->
+  <section id="host">
+    <div class="section-inner">
+      <div class="host-grid">
+        <div class="reveal">
+          <span class="section-tag">Open Teach-Ins</span>
+          <h2>Want to host a <em>workshop?</em></h2>
+          <p class="lead">
+            You don't need a formal teaching background. You need a skill, a willingness to share it, and a community ready to receive it. Kilombo provides everything else.
+          </p>
+          <div class="host-how">
+            <div class="host-step">
+              <div class="host-step-num">1</div>
+              <div>
+                <strong>Tell us your idea</strong>
+                <p>Fill out the form with your workshop concept, the skill you'd like to share, and how many sessions you're thinking. No idea is too niche or too simple.</p>
+              </div>
+            </div>
+            <div class="host-step">
+              <div class="host-step-num">2</div>
+              <div>
+                <strong>We connect with you</strong>
+                <p>Joyce will reach out within a week to talk through your idea, confirm the space and materials needed, and set a date that works for you.</p>
+              </div>
+            </div>
+            <div class="host-step">
+              <div class="host-step-num">3</div>
+              <div>
+                <strong>We handle the logistics</strong>
+                <p>Kilombo promotes the workshop, manages registration, provides the space and materials support, and takes care of the admin. You just show up and teach.</p>
+              </div>
+            </div>
+            <div class="host-step">
+              <div class="host-step-num">4</div>
+              <div>
+                <strong>You get paid</strong>
+                <p>Facilitators receive a portion of registration fees. Your time and knowledge have real value here, and we make sure that's reflected.</p>
+              </div>
+            </div>
+          </div>
+          <div class="equity-note" style="background: #f0e8d8;">
+            <p><strong>All disciplines welcome.</strong> Photography, craft, language, music, cooking, movement, technology, storytelling. If it's a skill you carry, there is someone in this community who wants to learn it from you.</p>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s">
+          <div class="host-form-wrap">
+            <h3>Propose a Workshop</h3>
+            <p>Tell us what you'd like to teach. We'll take it from there.</p>
+            <form class="host-form" onsubmit="handleHostSubmit(event)">
+              <div class="form-row">
+                <div class="field">
+                  <label>Your Name</label>
+                  <input type="text" placeholder="First name" required />
+                </div>
+                <div class="field">
+                  <label>Pronouns</label>
+                  <input type="text" placeholder="she/her, they/them..." />
+                </div>
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="email" placeholder="you@email.com" required />
+              </div>
+              <div class="field">
+                <label>Workshop Title or Idea</label>
+                <input type="text" placeholder="e.g. Intro to Natural Dyeing, Basic Music Theory..." required />
+              </div>
+              <div class="field">
+                <label>Discipline or Category</label>
+                <select>
+                  <option value="">Select one</option>
+                  <option>Photography or Film</option>
+                  <option>Visual Art or Craft</option>
+                  <option>Textile or Fibre Arts</option>
+                  <option>Music or Sound</option>
+                  <option>Language or Writing</option>
+                  <option>Food or Cooking</option>
+                  <option>Movement or Dance</option>
+                  <option>Technology or Design</option>
+                  <option>Wellness or Community Care</option>
+                  <option>Something Else</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>How many sessions do you have in mind?</label>
+                <select>
+                  <option value="">Select one</option>
+                  <option>One session (drop-in)</option>
+                  <option>Two sessions</option>
+                  <option>Three or more sessions</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Tell us about your workshop</label>
+                <textarea placeholder="What would participants learn? What materials would be needed? Any experience level requirements? Any other details..."></textarea>
+              </div>
+              <div class="field">
+                <label>Have you taught or facilitated before?</label>
+                <select>
+                  <option value="">Select one</option>
+                  <option>Yes, formally</option>
+                  <option>Yes, informally</option>
+                  <option>No, this would be my first time</option>
+                </select>
+              </div>
+              <button type="submit" class="form-submit">Submit Proposal</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Bulletin Board ── -->
+  <section id="bulletin">
+    <div class="section-inner">
+      <div class="bulletin-header reveal">
+        <div>
+          <span class="section-tag">What's On</span>
+          <h2>The Board</h2>
+        </div>
+        <p class="bulletin-meta">Updated regularly &nbsp;&middot;&nbsp; July 2026</p>
+      </div>
+      <div class="bulletin-grid">
+
+        <div class="pin-card tone-mustard tilt-right reveal">
+          <span class="pin-label">Upcoming Workshop</span>
+          <h3>Intro to 35mm Film Photography</h3>
+          <p>Load your first roll, understand light and exposure, and shoot a full roll by the end of the session. All equipment provided. Beginners welcome.</p>
+          <div class="pin-date">Saturday, July 19 &nbsp;&middot;&nbsp; 2–5pm</div>
+          <span class="pin-spots">6 spots left</span><br>
+          <a href="#contact" class="pin-link">Register</a>
+        </div>
+
+        <div class="pin-card tone-sage reveal" style="transition-delay:0.08s">
+          <span class="pin-label">Announcement</span>
+          <h3>Darkroom Now Open for Members</h3>
+          <p>The darkroom is fully set up and ready. Book a free 30-minute orientation session to get access to film developing and B&W printing.</p>
+          <a href="#contact" class="pin-link">Book Orientation</a>
+        </div>
+
+        <div class="pin-card tone-white tilt-left reveal" style="transition-delay:0.12s">
+          <span class="pin-label">Call-Out</span>
+          <h3>Founding Exhibition — August 2026</h3>
+          <p>Kilombo's first public exhibition. We're calling on members and community artists to submit work. All mediums considered. Free to participate.</p>
+          <div class="pin-date">Submissions close July 31</div>
+          <a href="#contact" class="pin-link">Submit Your Work</a>
+        </div>
+
+        <div class="pin-card tone-terra wide reveal" style="transition-delay:0.16s">
+          <span class="pin-label">Open Access</span>
+          <h3>Drop-In Thursdays</h3>
+          <p>The photo studio is open every Thursday from 4–8pm for non-members. No booking required — just show up. $65/hr, pay at the door. Gear available on request. Bring your ideas.</p>
+          <div class="pin-date">Every Thursday &nbsp;&middot;&nbsp; 4–8pm</div>
+        </div>
+
+        <div class="pin-card tone-white tilt-right reveal" style="transition-delay:0.2s">
+          <span class="pin-label">Upcoming Workshop</span>
+          <h3>Paper Making from Recycled Materials</h3>
+          <p>Turn shredded paper into handmade sheets for zines and artwork. Workshop run by the Kilombo community. Materials included.</p>
+          <div class="pin-date">Saturday, July 26 &nbsp;&middot;&nbsp; 1–4pm</div>
+          <span class="pin-spots">8 spots</span><br>
+          <a href="#contact" class="pin-link">Register</a>
+        </div>
+
+        <div class="pin-card tone-mustard reveal" style="transition-delay:0.24s">
+          <span class="pin-label">Volunteer</span>
+          <h3>Saturday Front Desk — Earn Studio Credit</h3>
+          <p>We're looking for community members to help staff the studio on Saturdays. In exchange: studio credit and first access to new workshops.</p>
+          <a href="#contact" class="pin-link">Get in Touch</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Membership ── -->
+  <section id="membership">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-tag">Access</span>
+        <h2>Membership &amp; Studio Access</h2>
+        <p class="lead">Kilombo is built to be used. Our rates sit well below the Toronto studio average of $105/hr — because professional space should not be a luxury.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="plan-card reveal">
+          <p class="plan-name">Starter</p>
+          <p class="plan-price">$300<span>/month</span></p>
+          <p class="plan-desc">For those starting out or shooting less frequently. Full access to all rooms — at half the rate of most Toronto studios.</p>
+          <ul class="plan-features">
+            <li>10 studio hours per month ($30/hr effective)</li>
+            <li>Access to all rooms</li>
+            <li>Gear sign-out system</li>
+            <li>Workshop discounts</li>
+            <li>Kitchen and lounge access</li>
+          </ul>
+          <a href="#contact" class="plan-btn">Get Started</a>
+        </div>
+        <div class="plan-card featured reveal" style="transition-delay:0.1s">
+          <div class="plan-badge">Most Popular</div>
+          <p class="plan-name">Standard</p>
+          <p class="plan-price">$500<span>/month</span></p>
+          <p class="plan-desc">The full Kilombo experience. Ideal for active photographers and working artists who need regular studio access.</p>
+          <ul class="plan-features">
+            <li>20 studio hours per month ($25/hr effective)</li>
+            <li>Access to all rooms</li>
+            <li>Gear sign-out system</li>
+            <li>Workshop priority booking</li>
+            <li>Kitchen and lounge access</li>
+            <li>Foyer exhibition eligibility</li>
+          </ul>
+          <a href="#contact" class="plan-btn">Get Started</a>
+        </div>
+        <div class="plan-card reveal" style="transition-delay:0.2s">
+          <p class="plan-name">Drop-In</p>
+          <p class="plan-price">$65<span>/hour</span></p>
+          <p class="plan-desc">No commitment. Book when you need it — personal projects, product shoots, headshots, and brand content.</p>
+          <ul class="plan-features">
+            <li>Single-session booking</li>
+            <li>Access to the photo studio</li>
+            <li>Gear available on request</li>
+            <li>No minimum commitment</li>
+            <li>Online booking</li>
+          </ul>
+          <a href="#contact" class="plan-btn">Book a Session</a>
+        </div>
+      </div>
+      <div class="equity-note reveal">
+        <p><strong>Access should never depend on income.</strong> Kilombo has a sliding-scale scholarship fund for workshop access, a community barter and exchange program, and youth pricing for participants under 25. If cost is a barrier, reach out — we will find a way to make it work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="reveal">
+          <span class="section-tag">Get in Touch</span>
+          <h2>Come see the <em>space.</em></h2>
+          <p>Book a tour, ask about membership, propose a workshop, or just introduce yourself. We want to hear from you.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <label>Address</label>
+              <span>1282 Dundas St. W, Little Portugal<br>Toronto, ON</span>
+            </div>
+            <div class="contact-item">
+              <label>Email</label>
+              <span>kilombostudios@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <label>Instagram</label>
+              <span>@kilombostudios</span>
+            </div>
+            <div class="contact-item">
+              <label>Hours</label>
+              <span>By appointment + member access<br>Workshops by schedule</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.15s">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="field">
+                <label>First Name</label>
+                <input type="text" placeholder="Joyce" required />
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Silva" required />
+              </div>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" placeholder="you@email.com" required />
+            </div>
+            <div class="field">
+              <label>I'm interested in</label>
+              <select>
+                <option value="">Select one</option>
+                <option>Starter Membership ($300/mo)</option>
+                <option>Standard Membership ($500/mo)</option>
+                <option>Drop-In Session ($65/hr)</option>
+                <option>Book a Tour</option>
+                <option>Propose a Workshop</option>
+                <option>Vendor Space in the Foyer</option>
+                <option>Office / Studio Space Rental</option>
+                <option>Something Else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Message</label>
+              <textarea placeholder="Tell us a bit about yourself and what you're looking for..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">KILOMBO <span>STUDIOS</span></div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#space">The Space</a></li>
+        <li><a href="#workshops">Workshops</a></li>
+        <li><a href="#bulletin">What's On</a></li>
+      <li><a href="#host">Host a Workshop</a></li>
+      <li><a href="#membership">Membership</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">1282 Dundas St. W, Toronto &nbsp;&middot;&nbsp; &copy; 2026 Kilombo Studios</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
