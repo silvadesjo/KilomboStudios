@@ -1,97 +1,49 @@
 # Kilombo Studios — Website
 
 Community photography and creative space at 1282 Dundas St. W, Little Portugal, Toronto.
+Live at **kilombostudios.ca** (GitHub Pages, deployed from the `main` branch).
 
----
+## Pages
 
-## File Structure
-
-```
-kilombo-studios/
-├── index.html        ← Main website (single-page)
-├── css/
-│   └── style.css     ← All styles
-├── js/
-│   └── main.js       ← Scroll reveal, nav, form behaviour
-└── README.md
-```
-
----
-
-## Deploying to GitHub Pages
-
-1. **Create a new GitHub repository** (e.g. `kilombo-studios`)
-2. **Upload all files** — drag and drop into GitHub, or use Git:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial site"
-   git remote add origin https://github.com/YOUR-USERNAME/kilombo-studios.git
-   git push -u origin main
-   ```
-3. **Enable GitHub Pages:**
-   - Go to your repo → Settings → Pages
-   - Under "Source", select **Deploy from a branch**
-   - Choose **main** branch, **/ (root)** folder
-   - Click Save
-4. Your site will be live at `https://YOUR-USERNAME.github.io/kilombo-studios/`
-
----
-
-## Updating Content
-
-### Change bulletin board cards
-Open `index.html` and find the section with `id="bulletin"`.
-Each card looks like this — edit the text directly:
-
-```html
-<div class="pin-card tone-mustard tilt-right reveal">
-  <span class="pin-label">Upcoming Workshop</span>
-  <h3>Workshop Title Here</h3>
-  <p>Description of the workshop...</p>
-  <div class="pin-date">Saturday, July 19 · 2–5pm</div>
-  <span class="pin-spots">6 spots left</span>
-  <a href="#contact" class="pin-link">Register</a>
-</div>
-```
-
-Card colour tones: `tone-mustard`, `tone-terra`, `tone-sage`, `tone-white`
-Card tilts: `tilt-left`, `tilt-right` (or omit for straight)
-Wide cards: add `wide` class → `class="pin-card wide"`
-
-### Change workshop dates or pricing
-Search `index.html` for the text you want to update and edit in place.
-
-### Swap the logo
-The fire logo is an SVG built into the page. To replace it with your own image:
-- Open `index.html`
-- Find `id="fire-logo"` inside the `<svg style="display:none">` block
-- Replace the contents with your own SVG, or switch both `<use href="#fire-logo">` instances to `<img src="logo.png">` tags
-
-### Connect the contact form
-The form currently shows a success state on submit but does not send emails.
-To make it live, use **[Formspree](https://formspree.io)**:
-1. Create a free Formspree account
-2. Create a form and copy your endpoint URL (e.g. `https://formspree.io/f/xyzabc`)
-3. In `index.html`, find `<form class="contact-form"` and add `action="YOUR_ENDPOINT" method="POST"`
-4. Do the same for `<form class="host-form"`
-
----
-
-## Brand Colours
-
-| Name | Hex |
+| File | What's on it |
 |---|---|
-| Deep Green | `#264232` |
-| Medium Green | `#3d6652` |
-| Pale Sage | `#e8f0eb` |
-| Mustard | `#c88715` |
-| Terracotta | `#b2572b` |
-| Cream | `#fdf6ec` |
-| Warm Tan | `#f5ede0` |
-| Charcoal | `#2a2018` |
+| `index.html` | Home: hero, $5 Headshot Day, the five rooms, our story, studio access rates, newsletter |
+| `workshops.html` | Coming up, what we teach, past events (`#past`), host a workshop form (`#host`) |
+| `visit.html` | Address and hours, memberships and rates (`#rates`), booking and contact form (`#contact`) |
+| `events.html` | Redirects old links to `workshops.html#past` |
 
----
+Shared files: `css/site.css` (all styles), `js/site.js` (forms and the hero animation),
+`fonts/` (self-hosted Galindo, Space Mono, Space Grotesk), `images/`.
 
-Built with HTML, CSS, and vanilla JavaScript. No frameworks or dependencies.
-Fonts: [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) + [Inter](https://fonts.google.com/specimen/Inter) via Google Fonts.
+## Look and feel
+
+Taken from the $5 Headshot Day poster.
+
+| Name | Hex | Use |
+|---|---|---|
+| Paper | `#F0EFEA` | Page background |
+| Ink | `#1D1C19` | Text |
+| Black | `#000000` | Photo frames, buttons, inverted sections |
+| Violet | `#7B4DFF` | Only for "happening now": the current event's frame, focus rings, the current page in the menu |
+| Cow hide | `images/hide.jpg` | Large backgrounds only (hero, page bands, footer) |
+
+Type: **Galindo** for the wordmark and page titles, **Space Mono** for headings and details,
+**Space Grotesk** for body text.
+
+Every photo sits in a thick black frame (`<figure class="frame">`). Add `frame--now` to give
+the current event its violet ring.
+
+## Common updates
+
+**Add an event to "Coming up"** — in `workshops.html`, copy one `<li>` inside `<ul class="rows">`
+and edit the date, title, description and button.
+
+**Change the featured event** — edit the "What's on" section and the black "next up" box in
+`index.html`, plus the date in the top strip on each page.
+
+**Add a past event** — in `workshops.html` under `id="past"`, copy the `<div class="feature">` block.
+Put photos or posters in `images/`.
+
+**Forms** — all forms send to kilombophotostudios@gmail.com through FormSubmit (set in `js/site.js`).
+Links can pre-select the contact form topic with `visit.html?interest=Book%20a%20Tour#contact`;
+the text must match an option in the "I'm interested in" list on `visit.html`.
