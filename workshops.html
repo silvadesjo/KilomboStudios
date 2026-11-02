@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Workshops & events — Kilombo Studios</title>
-  <meta name="description" content="Upcoming workshops and events at Kilombo Studios in Little Portugal, Toronto, past events, and how to host your own workshop." />
-  <meta property="og:title" content="Workshops & events — Kilombo Studios" />
-  <meta property="og:description" content="Upcoming workshops and events at Kilombo Studios in Little Portugal, Toronto, past events, and how to host your own workshop." />
+  <title>Workshops — Kilombo Studios</title>
+  <meta name="description" content="Workshops and events at Kilombo Studios in Little Portugal, Toronto: what's coming up, past workshops, and how to host your own." />
+  <meta property="og:title" content="Workshops — Kilombo Studios" />
+  <meta property="og:description" content="Workshops and events at Kilombo Studios in Little Portugal, Toronto: what's coming up, past workshops, and how to host your own." />
   <meta property="og:image" content="https://kilombostudios.ca/images/frame-2.jpg" />
   <meta name="theme-color" content="#F0EFEA" />
   <link rel="preload" href="fonts/galindo-400.woff2" as="font" type="font/woff2" crossorigin />
@@ -19,7 +19,7 @@
   <div class="topline">
     <div class="wrap">
       <a href="https://www.google.com/maps/search/?api=1&query=1282+Dundas+St+W,+Toronto,+ON" target="_blank" rel="noopener">1282 Dundas St. W</a>
-      <a href="index.html#whats-on">Next: Nov 21, 2026</a>
+      <a href="workshops.html#coming-up">Next: Nov 21, 2026</a>
     </div>
   </div>
   <header class="nav">
@@ -27,8 +27,8 @@
       <a class="nav-brand" href="index.html">Kilombo Studios</a>
       <ul class="nav-links">
         <li><a href="workshops.html" aria-current="page">Workshops</a></li>
-        <li><a href="visit.html">Visit &amp; book</a></li>
-        <li><a class="btn btn--small" href="visit.html?interest=Book%20a%20Tour#contact">Book a tour</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="btn btn--small" href="book.html">Book a studio</a></li>
       </ul>
     </div>
   </header>
@@ -38,48 +38,39 @@
       <div class="wrap">
         <div>
           <h1 id="page-title" class="display">Workshops</h1>
-          <p class="lead">Hands-on sessions in photography, print and craft, many of them taught by people from this community. From your first roll of film to your first exhibition.</p>
-          <div class="btn-row"><a class="btn" href="#coming-up">See what's coming up</a><a class="btn btn--ghost" href="#host">Host a workshop</a></div>
+          <p class="lead">Hands-on sessions in craft, scent, photography and more, made with and for this community.</p>
+          <div class="btn-row"><a class="btn" href="#host">Host a workshop</a><a class="btn btn--ghost" href="#newsletter">Get workshop news</a></div>
         </div>
-        <figure class="frame" style="margin:0"><img src="images/frame-2.jpg" alt="A sitter on a stool in front of a white backdrop, camera on a tripod in the foreground" width="315" height="313" /></figure>
-      </div>
-    </section>
-    <div class="hide-band hide-bg" role="presentation"></div>
-
-    <section class="section" id="coming-up" aria-labelledby="up-title">
-      <div class="wrap">
-        <div class="section-head"><h2 id="up-title" class="h2">Coming up</h2><p>Spots are limited. Reserve ahead, or join the newsletter to hear about new dates first.</p></div>
-        <ul class="rows">
-          <li><span class="when">Sat, Nov 21, 11am–4pm</span><div><h3>$5 Headshot Day</h3><p>A 10-minute sitting, two looks and one edited photo. A fundraiser for the studio.</p></div><a class="btn btn--small act" href="visit.html?interest=%245%20Headshot%20Day%20%28Nov%2021%29#contact">Reserve a slot</a></li>
-          <li><span class="when">Thursdays, 4–8pm</span><div><h3>Drop-in studio</h3><p>The photo studio is open to non-members. No booking, $65/hr, gear on request.</p></div><a class="btn btn--small btn--ghost act" href="visit.html">Plan your visit</a></li>
-          <li><span class="when">By appointment</span><div><h3>Darkroom orientation</h3><p>A free 30-minute session that gets members access to film developing and B&amp;W printing.</p></div><a class="btn btn--small btn--ghost act" href="visit.html?interest=Darkroom%20Orientation#contact">Book orientation</a></li>
-          <li><span class="when">Dates coming soon</span><div><h3>Journal Making Series</h3><p>A multi-week series: make paper from recycled materials, then bind it into your own journal.</p></div><a class="btn btn--small btn--ghost act" href="#newsletter">Get notified</a></li>
-          <li><span class="when">New dates soon</span><div><h3>Intro to 35mm film photography</h3><p>All equipment provided. Beginners welcome.</p></div><a class="btn btn--small btn--ghost act" href="visit.html?interest=Workshop%20Registration#contact">Register interest</a></li>
-          <li><span class="when">Saturdays</span><div><h3>Volunteer at the front desk</h3><p>Help run the studio and earn studio credit and first access to new workshops.</p></div><a class="btn btn--small btn--ghost act" href="visit.html?interest=Volunteering#contact">Get in touch</a></li>
-        </ul>
+        <aside class="next-up next-up--page" id="coming-up" aria-labelledby="up-title">
+          <h2 id="up-title">Coming up: $5 headshots</h2>
+          <dl>
+            <dt>When</dt><dd>Sat, Nov 21, 2026</dd>
+            <dt>Time</dt><dd>11:00am to 4:00pm</dd>
+            <dt>Where</dt><dd>1282 Dundas St. W</dd>
+          </dl>
+          <p>A 10-minute sitting, two looks and one edited photo. A fundraiser for the studio.</p>
+          <a class="btn btn--small" href="book.html?interest=%245%20Headshot%20Day%20%28Nov%2021%29#request">Reserve a slot</a>
+        </aside>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="teach-title">
+    <section class="section section--first" id="past" aria-labelledby="past-title">
       <div class="wrap">
-        <div class="section-head"><h2 id="teach-title" class="h2">What we teach</h2><p>Workshops we run regularly. Ask about private sessions for groups.</p></div>
-        <ul class="teach">
-          <li><h3>Intro to 35mm film photography</h3><p>Load your first roll, understand light and exposure, and leave with a roll ready to develop.</p></li>
-          <li><h3>DIY film developing</h3><p>Develop your own negatives: the chemistry, the process, and how to scan and share the results.</p></li>
-          <li><h3>Darkroom printing</h3><p>Make black-and-white prints from your own negatives and leave with three or four finished prints.</p></li>
-          <li><h3>Photo zine making</h3><p>Fold, cut and bind your own zine from your images and handmade paper, over two sessions.</p></li>
-          <li><h3>Batik printmaking</h3><p>Wax-resist dyeing on fabric, drawing on African textile traditions and contemporary print.</p></li>
-          <li><h3>Paper making</h3><p>Turn shredded paper into handmade sheets for art, journals and zines.</p></li>
-          <li><h3>Storytelling through photography</h3><p>Build a personal photo essay or series with editorial guidance.</p></li>
-          <li><h3>Crochet and fibre arts</h3><p>Community skill-sharing: learn from people who carry craft knowledge, and share your own.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="past" aria-labelledby="past-title">
-      <div class="wrap">
-        <div class="section-head"><h2 id="past-title" class="h2">Past events</h2><p>What we've made together so far.</p></div>
-        <div class="feature">
+        <h2 id="past-title" class="h2 section-title">Past workshops</h2>
+        <div class="past-list">
+        <article class="feature" id="kite-making">
+          <a class="frame" href="images/kite-making-poster.jpg" target="_blank" rel="noopener" aria-label="Open the Kite Making poster">
+            <img src="images/kite-making-poster.jpg" alt="Event poster: make your own kite at Kilombo Studios and fly it at Trinity Bellwoods, $20 per person, September 26, 2026, 1:00 to 4:00pm" width="1080" height="1350" loading="lazy" />
+          </a>
+          <div class="feature-body">
+            <h3 class="h2">Kite Making</h3>
+            <p class="lead">Make your own kite from scratch, decorate it, and fly it at Trinity Bellwoods.</p>
+            <p>Participants built their kites from scratch at the studio, decorated them, then headed to Trinity Bellwoods Park to fly them, weather permitting. All materials were included and beginners were welcome.</p>
+            <dl class="facts"><dt>Date</dt><dd>September 26, 2026, 1:00 to 4:00pm</dd><dt>Where</dt><dd>Kilombo Studios and Trinity Bellwoods Park</dd><dt>Ticket</dt><dd>$20 per person</dd></dl>
+            <a class="textlink" href="https://www.instagram.com/kilombostudios/" target="_blank" rel="noopener">See photos on Instagram</a>
+          </div>
+        </article>
+        <article class="feature feature--reverse" id="roots-and-notes">
           <a class="frame" href="images/roots-and-notes-poster.jpg" target="_blank" rel="noopener" aria-label="Open the Roots &amp; Notes poster">
             <img src="images/roots-and-notes-poster.jpg" alt="Event poster: Kilombo Studios × Concrete.Atelier aromatherapy workshop, $20 per person, July 26, 2026, 3:00 to 5:00pm" width="1200" height="1553" loading="lazy" />
           </a>
@@ -87,13 +78,10 @@
             <h3 class="h2">Roots &amp; Notes</h3>
             <p class="lead">Aromatherapy and intentional blending, in partnership with Concrete.Atelier. Our first event at the studio.</p>
             <p>Twelve participants gathered around the blending table to explore 17 essential oils, learn how top, middle and base notes work together, and craft a personal roller blend guided by emotion, story and instinct. Everyone went home with their blend and a Caverna Aroma diffuser from Concrete.Atelier.</p>
-            <dl class="facts">
-              <dt>Date</dt><dd>July 26, 2026, 3:00 to 5:00pm</dd>
-              <dt>People</dt><dd>12 participants</dd>
-              <dt>Ticket</dt><dd>$20 per person</dd>
-            </dl>
+            <dl class="facts"><dt>Date</dt><dd>July 26, 2026, 3:00 to 5:00pm</dd><dt>People</dt><dd>12 participants</dd><dt>Ticket</dt><dd>$20 per person</dd></dl>
             <a class="textlink" href="https://www.instagram.com/kilombostudios/" target="_blank" rel="noopener">See photos on Instagram</a>
           </div>
+        </article>
         </div>
       </div>
     </section>
@@ -156,7 +144,8 @@
         <span class="footer-brand">Kilombo Studios</span>
         <ul>
           <li><a href="workshops.html">Workshops</a></li>
-          <li><a href="visit.html">Visit &amp; book</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="book.html">Book a studio</a></li>
           <li><a href="mailto:kilombophotostudios@gmail.com">Email</a></li>
           <li><a href="https://www.instagram.com/kilombostudios/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>

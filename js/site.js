@@ -6,7 +6,7 @@ setTimeout(() => document.documentElement.classList.add('loaded'), 1800);
 
 // ── Contact form topic ─────────────────────────────────────────────
 // Links can pre-select what someone is asking about, either on the same
-// page (data-interest="...") or from another page (visit.html?interest=...).
+// page (data-interest="...") or from another page (book.html?interest=...).
 (function () {
   const select = document.getElementById('contact-interest');
   if (!select) return;
@@ -26,7 +26,7 @@ setTimeout(() => document.documentElement.classList.add('loaded'), 1800);
 (function () {
   const FORM_ENDPOINT = 'https://formsubmit.co/ajax/kilombophotostudios@gmail.com';
   const MESSAGES = {
-    contact:    { busy: 'Sending…', done: 'Message sent', ok: "Thanks! Your message is on its way. We'll get back to you soon." },
+    contact:    { busy: 'Sending…', done: 'Request sent', ok: "Thanks! Your request is on its way. We'll email you to confirm." },
     host:       { busy: 'Sending…', done: 'Proposal sent', ok: "Thank you! Joyce will reach out within a week to talk through your idea." },
     newsletter: { busy: 'Joining…', done: "You're in", ok: "Welcome to the Kilombo community. Watch your inbox." }
   };

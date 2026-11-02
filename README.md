@@ -7,9 +7,10 @@ Live at **kilombostudios.ca** (GitHub Pages, deployed from the `main` branch).
 
 | File | What's on it |
 |---|---|
-| `index.html` | Home: hero, $5 Headshot Day, the five rooms, our story, studio access rates, newsletter |
-| `workshops.html` | Coming up, what we teach, past events (`#past`), host a workshop form (`#host`) |
-| `visit.html` | Address and hours, memberships and rates (`#rates`), booking and contact form (`#contact`) |
+| `index.html` | Home: hero, what's on and past workshops, the five rooms, rates |
+| `workshops.html` | Next event (`#coming-up`), past workshops (`#past`), host a workshop form (`#host`) |
+| `about.html` | Story, values, address and hours (`#find-us`) |
+| `book.html` | Rates and memberships (`#rates`), booking request form (`#request`) |
 | `events.html` | Redirects old links to `workshops.html#past` |
 
 Shared files: `css/site.css` (all styles), `js/site.js` (forms and the hero animation),
@@ -35,15 +36,13 @@ the current event its violet ring.
 
 ## Common updates
 
-**Add an event to "Coming up"** — in `workshops.html`, copy one `<li>` inside `<ul class="rows">`
-and edit the date, title, description and button.
+**Change the upcoming event** — edit the black "Coming up" box in `workshops.html` and the "What's on" section in `index.html`.
 
-**Change the featured event** — edit the "What's on" section and the black "next up" box in
-`index.html`, plus the date in the top strip on each page.
+Also update the black "next up" box in the `index.html` hero and the date in the top strip.
 
-**Add a past event** — in `workshops.html` under `id="past"`, copy the `<div class="feature">` block.
-Put photos or posters in `images/`.
+**Add a past workshop** — in `workshops.html` under `id="past"`, copy an `<article class="feature">` block
+(alternate `feature--reverse` for a zig-zag layout), and add a teaser on `index.html`. Put posters in `images/`.
 
 **Forms** — all forms send to kilombophotostudios@gmail.com through FormSubmit (set in `js/site.js`).
-Links can pre-select the contact form topic with `visit.html?interest=Book%20a%20Tour#contact`;
-the text must match an option in the "I'm interested in" list on `visit.html`.
+Links can pre-select the booking form topic with `book.html?interest=Book%20a%20Tour#request`;
+the text must match an option in the "I'd like to book" list on `book.html`.
