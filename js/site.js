@@ -27,7 +27,7 @@ setTimeout(() => document.documentElement.classList.add('loaded'), 1800);
   const FORM_ENDPOINT = 'https://formsubmit.co/ajax/kilombophotostudios@gmail.com';
   const MESSAGES = {
     contact:    { busy: 'Sending…', done: 'Request sent', ok: "Thanks! Your request is on its way. We'll email you to confirm." },
-    host:       { busy: 'Sending…', done: 'Proposal sent', ok: "Thank you! Joyce will reach out within a week to talk through your idea." },
+    host:       { busy: 'Sending…', done: 'Proposal sent', ok: "Thank you! We will reach out within a week to talk through your idea." },
     newsletter: { busy: 'Joining…', done: "You're in", ok: "Welcome to the Kilombo community. Watch your inbox." }
   };
 
