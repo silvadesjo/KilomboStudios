@@ -146,6 +146,8 @@
 
     .photo-slot.tall { aspect-ratio: 3/4; grid-row: span 2; }
     .photo-slot.wide { aspect-ratio: 16/9; grid-column: span 2; }
+    .photo-slot.poster { aspect-ratio: 1545/2000; }
+    .photo-slot.poster a { display: block; width: 100%; height: 100%; }
 
     .photo-slot img {
       width: 100%; height: 100%;
@@ -269,7 +271,7 @@
     }
 
     /* ── Reveal ── */
-    .reveal {
+    .js .reveal {
       opacity: 0; transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
@@ -309,14 +311,64 @@
       }
       .page-header { padding: 7rem 1.5rem 3rem; }
     }
+
+    /* ── Fixes Oct 2026: JS-safe reveal, mobile menu, form status ── */
+    .nav-toggle {
+      display: none; background: none; border: 0; cursor: pointer;
+      width: 40px; height: 40px; padding: 8px; margin-left: 0.5rem;
+      flex-direction: column; justify-content: center; gap: 5px;
+    }
+    .nav-toggle span { display: block; height: 2px; background: var(--green); border-radius: 2px; transition: transform .25s, opacity .25s; }
+    nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 900px) {
+      .nav-toggle { display: flex; }
+      nav.open .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: flex-start; gap: 0;
+        background: rgba(253,246,236,0.99); padding: 0.5rem 1.5rem 1.25rem;
+        border-bottom: 1px solid rgba(42,32,24,0.1);
+        box-shadow: 0 12px 24px rgba(42,32,24,0.08);
+      }
+      nav.open .nav-links li { display: block !important; width: 100%; }
+      nav.open .nav-links a { display: block; padding: 0.8rem 0; }
+      nav.open .nav-links .nav-cta { display: inline-block; margin-top: 0.6rem; padding: 0.7rem 1.4rem; }
+    }
+    .form-status { margin-top: 0.9rem; font-size: 0.88rem; line-height: 1.5; }
+    .form-status.ok { color: #264232; }
+    .form-status.err { color: #b2572b; }
+    .nav-links a, .nav-logo { white-space: nowrap; }
+    @media (max-width: 1360px) { .nav-links { gap: 1.4rem; } }
+    @media (max-width: 1300px) {
+      .nav-toggle { display: flex; }
+      .nav-links li:not(:last-child) { display: none; }
+      nav.open .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: flex-start; gap: 0;
+        background: rgba(253,246,236,0.99); padding: 0.5rem 1.5rem 1.25rem;
+        border-bottom: 1px solid rgba(42,32,24,0.1);
+        box-shadow: 0 12px 24px rgba(42,32,24,0.08);
+      }
+      nav.open .nav-links li { display: block !important; width: 100%; }
+      nav.open .nav-links a { display: block; padding: 0.8rem 0; }
+      nav.open .nav-links .nav-cta { display: inline-block; margin-top: 0.6rem; padding: 0.7rem 1.4rem; }
+    }
+    .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   </style>
+  <script>
+    // Hide reveal-animated content only when JavaScript is running, and
+    // un-hide it if the main script never finishes loading.
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.__kilomboReady) document.documentElement.classList.remove('js'); }, 2500);
+  </script>
 </head>
 <body>
 
   <!-- Nav -->
   <nav>
     <a href="index.html" class="nav-logo">KILOMBO <span>STUDIOS</span></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html#about">About</a></li>
       <li><a href="events.html" class="active">Past Events</a></li>
       <li><a href="index.html#workshops">Workshops</a></li>
@@ -324,6 +376,9 @@
       <li><a href="index.html#membership">Membership</a></li>
       <li><a href="index.html#contact" class="nav-cta">Book a Tour</a></li>
     </ul>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- Page Header -->
@@ -342,28 +397,16 @@
       <!-- ── EVENT 1: Roots & Notes ── -->
       <div class="event-card reveal">
         <!-- Photos -->
-        <div class="event-photo-grid grid-2x2">
+        <div class="event-photo-grid grid-1">
           <!--
-            TO ADD PHOTOS: Replace each photo-placeholder div with:
-            <img src="your-photo.jpg" alt="Description" />
-            inside the photo-slot div.
-            You can upload photos to your GitHub repo and reference them as:
-            src="images/roots-notes-1.jpg"
+            TO ADD PHOTOS: switch this div to class="event-photo-grid grid-2x2", make the
+            poster slot class="photo-slot tall", and add more slots like:
+            <div class="photo-slot"><img src="images/your-photo.jpg" alt="Description" loading="lazy" /></div>
           -->
-          <div class="photo-slot tall">
-            <div class="photo-placeholder">
-              📷<br>Add photo
-            </div>
-          </div>
-          <div class="photo-slot">
-            <div class="photo-placeholder">
-              📷<br>Add photo
-            </div>
-          </div>
-          <div class="photo-slot">
-            <div class="photo-placeholder">
-              📷<br>Add photo
-            </div>
+          <div class="photo-slot poster">
+            <a href="images/roots-and-notes-poster.jpg" target="_blank" rel="noopener" aria-label="Open the full Roots &amp; Notes poster">
+              <img src="images/roots-and-notes-poster.jpg" alt="Event poster: Kilombo Studios × Concrete.Atelier aromatherapy workshop, $20 per person, July 26, 2026, 3:00–5:00pm, 1282 Dundas Street W, Toronto" loading="lazy" />
+            </a>
           </div>
         </div>
 
@@ -377,14 +420,15 @@
             Our very first event at Kilombo Studios. Twelve participants gathered around the blending table to explore 17 curated essential oils, learn the art of top, middle, and base notes, and craft their own personal aromatherapy roller blend — guided by emotion, story, and instinct. Each participant went home with a custom blend and a Caverna Aroma diffuser from Concrete.Atelier.
           </p>
           <div class="event-meta">
-            <div class="meta-item">🕐 <span>2.5 hours</span></div>
+            <div class="meta-item">🕐 <span>3:00–5:00pm</span></div>
+            <div class="meta-item">🎟 <span>$20 per person</span></div>
             <div class="meta-item">👥 <span>12 participants</span></div>
             <div class="meta-item">📍 <span>1282 Dundas St. W</span></div>
             <div class="meta-item">🌿 <span>17 essential oils</span></div>
           </div>
           <div class="event-actions">
-            <a href="YOUR_PHOTO_GALLERY_LINK_HERE" class="btn-primary" target="_blank">View Full Gallery</a>
-            <a href="index.html#workshops" class="btn-outline">Book Next Session</a>
+            <a href="https://www.instagram.com/kilombostudios/" class="btn-primary" target="_blank" rel="noopener">See Photos on Instagram</a>
+            <a href="index.html#bulletin" class="btn-outline">See What's On</a>
           </div>
         </div>
       </div>
@@ -434,6 +478,23 @@
       });
     }, { threshold: 0.08 });
     revealEls.forEach(el => observer.observe(el));
+
+    // ── Mobile menu ──────────────────────────────────────────────────
+    (function () {
+      const navEl = document.querySelector('nav');
+      const toggle = document.querySelector('.nav-toggle');
+      if (!navEl || !toggle) return;
+      const setOpen = (open) => {
+        navEl.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open);
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      };
+      toggle.addEventListener('click', () => setOpen(!navEl.classList.contains('open')));
+      navEl.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    window.__kilomboReady = true;
   </script>
 
 </body>
