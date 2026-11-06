@@ -164,6 +164,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
   .js.loaded .strip .frame { opacity: 1; transform: none; transition: opacity .5s ease, transform .6s cubic-bezier(.2,.9,.25,1.15); }
   .js.loaded .strip .frame:nth-child(2) { transition-delay: .18s; }
   .js.loaded .strip .frame:nth-child(3) { transition-delay: .36s; }
+  .js.loaded .strip .frame:nth-child(4) { transition-delay: .54s; }
 }
 
 /* ── Sections ────────────────────────────────────────────────────── */
@@ -325,7 +326,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
   .hero-title, .hero-intro, .next-up { grid-column: 1; }
   .hero-title { grid-row: 1; }
   .hero-intro { grid-row: 2; }
-  .strip { grid-column: 1; grid-row: 3; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 2rem; --frame: 6px; }
+  .strip { grid-column: 1; grid-row: 3; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 2rem; --frame: 6px; }
   .strip .frame { padding: 6px; }
   .next-up { grid-row: 4; margin-top: 2rem; max-width: none; justify-self: stretch; }
   .feature, .story .wrap, .split, .page-head .wrap { grid-template-columns: 1fr; }
