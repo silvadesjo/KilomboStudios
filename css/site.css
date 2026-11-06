@@ -112,7 +112,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
 /* ── Frames: every image sits in a black print frame.
       The violet ring marks whatever is happening now. ───────────── */
 .frame { background: var(--black); padding: var(--frame); }
-.frame img { width: 100%; height: 100%; object-fit: cover; }
+.frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 .frame--now { box-shadow: 0 0 0 5px var(--violet); }
 
 /* ── Cow hide ────────────────────────────────────────────────────── */
