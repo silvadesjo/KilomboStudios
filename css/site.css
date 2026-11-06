@@ -138,7 +138,8 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
 .hero-title h1 { font-size: clamp(4.2rem, 9.4vw, 8.6rem); }
 .hero-title p { margin-top: 1.4rem; font-family: var(--mono); font-size: 0.95rem; max-width: 30ch; }
 
-.strip { grid-column: 2; grid-row: 1 / span 2; display: grid; gap: 14px; align-content: start; }
+.strip { grid-column: 2; grid-row: 1 / span 2; display: grid; gap: 24px; align-content: start; padding: 5px; }
+.strip .frame { box-shadow: 0 0 0 5px var(--violet); }
 .strip .frame { aspect-ratio: 1 / 1; }
 
 .hero-intro { grid-column: 3; grid-row: 1; align-self: start; padding-top: 0.6rem; }
@@ -326,8 +327,8 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
   .hero-title, .hero-intro, .next-up { grid-column: 1; }
   .hero-title { grid-row: 1; }
   .hero-intro { grid-row: 2; }
-  .strip { grid-column: 1; grid-row: 3; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 2rem; --frame: 6px; }
-  .strip .frame { padding: 6px; }
+  .strip { grid-column: 1; grid-row: 3; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 2rem; --frame: 6px; }
+  .strip .frame { padding: 6px; box-shadow: 0 0 0 4px var(--violet); }
   .next-up { grid-row: 4; margin-top: 2rem; max-width: none; justify-self: stretch; }
   .feature, .story .wrap, .split, .page-head .wrap { grid-template-columns: 1fr; }
   .feature .frame { max-width: 360px; }
