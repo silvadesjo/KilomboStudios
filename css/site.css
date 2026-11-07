@@ -307,6 +307,14 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
   .feature--reverse > .frame { order: 0; }
 }
 
+.feature--next { margin-top: clamp(56px, 8vw, 110px); }
+.past-strip { margin-top: clamp(56px, 8vw, 96px); padding-top: 8px; border-top: 2px solid var(--line); }
+.past-strip .teasers { grid-template-columns: repeat(auto-fill, minmax(150px, 180px)); }
+.next-up--page .up-item { padding: 16px 0; border-top: 1px solid #3A3934; }
+.next-up--page .up-item:last-child { padding-bottom: 0; }
+.next-up--page .up-item h3 { font: 700 1.05rem var(--mono); margin-bottom: 6px; }
+.next-up--page .up-item p { margin: 0 0 12px; }
+
 /* ── Responsive ──────────────────────────────────────────────────── */
 @media (max-width: 1000px) {
   .hero .wrap { grid-template-columns: 1fr minmax(200px, 260px); }
